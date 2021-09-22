@@ -2,7 +2,7 @@
 
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Preview site [here]().
+Preview site [here](https://warm-hollows-18751.herokuapp.com/).
 
 ## Table of contents
 
@@ -50,7 +50,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [My solution]()
-- Live Site URL: [Live site]()
+- Live Site URL: [Live site](https://warm-hollows-18751.herokuapp.com/)
 
 ## My process
 
