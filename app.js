@@ -3,10 +3,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const port = 3000;
 
+require('dotenv').config();
 
 // Connecting to the database
-mongoose.connect('mongodb://localhost:27017/todo-FM-DB',);
-
+// mongoose.connect('mongodb://localhost:27017/todo-FM-DB',); //local
+mongoose.connect(`mongodb+srv://admin-ayo:${process.env.PASSWORD}@cluster0.xbul4.mongodb.net/todoList`)  //aws
 
 // Configuring the express app
 const app = express();
