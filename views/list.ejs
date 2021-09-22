@@ -1,7 +1,7 @@
 <%-include("partials/header");-%>
 <body>
   <div class="container-fluid">
-    <div class="top-container">
+    <div class="top-container" role="complementary">
       <div class="top-box">
         <h1>Todo</h1>
         <button class="toggle-switch"><img src="" alt="toggle icon" tabindex="0"></button>  
@@ -9,7 +9,7 @@
       <div class="input-box">
         <form action="/" method="post" class="create">
           <label for="addTodo">
-            <input type="radio" name="addTodo" id="addTodo" onchange="this.form.submit()">
+            <input type="radio" name="addTodo" id="addTodo" onchange="this.form.submit()" aria-label="Click to add new todo to list">
             <div class="circle"><div class="circle-gradient"></div></div>  
           </label>
           <input type="text" name="todoItem" placeholder="Create a new todo..." autocomplete="off" aria-label="Add new todo">
@@ -17,7 +17,7 @@
       </div>
     </div>
   
-    <div class="box col-md-auto">
+    <div class="box col-md-auto" role="main">
       <% if (itemsLeft === 0) { %>
         <div class="item-row">
           <div class="welcome-message">
@@ -28,7 +28,7 @@
 
       <% if (locals.doneItems){ %>
         <% doneItems.forEach((doneItem, index) =>{ %>
-          <div id="<%='completed-' + index %>">
+          <div id="<%='completed-' + index %>" role="complementary">
             <form action="/delete" method="post">
               <div class="item-row done-item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)">
                 <label for="<%=doneItem._id%>">
@@ -49,7 +49,7 @@
 
       <% if (locals.foundItems){ %>
         <% foundItems.forEach((toDoItem, index)=>{ %>
-          <div id="<%='todo-' + index%>">
+          <div id="<%='todo-' + index%>" role="complementary">
             <form action="/delete" method="post">
               <div class="item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)" onclick="submitForm(this)">
                 <label for="<%=toDoItem._id%>">
@@ -68,7 +68,7 @@
           <% }); %>
       <% }; %>
 
-      <div class="item-row info-container">
+      <div class="item-row info-container" role="complementary">
         <div class="items-left">
           <p><%=itemsLeft%> items left</p>
         </div>
@@ -83,7 +83,7 @@
       </div>
     </div>  
 
-    <div class="todo-lists-small-screen">
+    <div class="todo-lists-small-screen" role="complementary">
       <a href="/" aria-label="View all todos">All</a>
       <a href="/active" aria-label="View active todos">Active</a>
       <a href="/completed"  aria-label="View completed todo items">Completed</a>
