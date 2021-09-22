@@ -28,7 +28,7 @@
 
       <% if (locals.doneItems){ %>
         <% doneItems.forEach((doneItem, index) =>{ %>
-          <div id="<%='completed-' + index %>" role="complementary">
+          <div id="<%='completed-' + index %>" role="complementary" aria-label="completed todos box">
             <form action="/delete" method="post">
               <div class="item-row done-item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)">
                 <label for="<%=doneItem._id%>">
@@ -49,7 +49,7 @@
 
       <% if (locals.foundItems){ %>
         <% foundItems.forEach((toDoItem, index)=>{ %>
-          <div id="<%='todo-' + index%>" role="complementary">
+          <div id="<%='todo-' + index%>" role="complementary" aria-label="active todos box">
             <form action="/delete" method="post">
               <div class="item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)" onclick="submitForm(this)">
                 <label for="<%=toDoItem._id%>">
