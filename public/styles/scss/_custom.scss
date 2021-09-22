@@ -1,0 +1,79 @@
+@mixin makeElementFocusableWithBackground($color) {
+    &:hover, &:focus{
+        cursor: pointer;
+        color: $color;
+    }
+}
+
+@mixin positionAbsoluteAndCenter() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin centerPositionedElementVertically() {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin positionAbsoluteWithCursor() {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+@mixin makeInlineBlockWithBorder($height, $width, $borThickness, $borColor, $borRadius) {
+    display: inline-block;
+    height: $height;
+    width: $width;
+    border: $borThickness solid $borColor;
+    border-radius: $borRadius;
+}
+
+@mixin positionImageAbsoluteAndCenter() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin customRadioButton($width, $height, $bgColor, $borderColor){
+    input[type=radio]{
+        opacity: 0;
+        @include positionAbsoluteWithCursor();
+        &:checked ~ .circle{
+            background: $checkBackground;
+        }
+        &:focus ~ .circle{
+            background: $checkBackground;
+        }
+    }
+    .circle{
+        @include positionAbsoluteWithCursor();
+        @include makeInlineBlockWithBorder($height, $width, 1px, $borderColor, 50%);
+        &:hover, &:focus{
+            border: none;
+        }
+        .circle-gradient{
+            @include positionAbsoluteWithCursor();
+            @include makeInlineBlockWithBorder($height, $width, 1px, transparent, 50%);
+            background: 
+            linear-gradient($bgColor $bgColor) padding-box,
+            linear-gradient(to right, $borderColor, $borderColor) border-box;
+            &:hover, &:focus{
+                background: 
+                linear-gradient($bgColor, $bgColor) padding-box,
+                $checkBackground border-box;
+                z-index: 1;
+            }        
+        }
+    }
+}
+
+@mixin displayFlexAndJustifyContent($justifyContentValue) {
+    display: flex;
+    justify-content: $justifyContentValue;    
+}

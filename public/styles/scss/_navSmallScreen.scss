@@ -1,0 +1,21 @@
+.todo-lists-small-screen{
+    display: none;
+    margin: 0 auto;
+    padding: 2.2% 18%;
+    background: $veryDarkDesaturatedBlue;
+    border-radius: 5px;
+    a{
+        color: $darkGrayishBlue;
+        text-decoration: none;
+    }
+    @media (max-width: 767px){
+        width: 80%;
+        @include displayFlexAndJustifyContent(space-between);
+    }
+    @media (max-width: 576px){
+        width: 90%;
+    }
+    @media (max-width: 300px){
+        font-size: $fontSize/1.2;
+    }
+}

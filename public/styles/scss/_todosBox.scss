@@ -1,0 +1,106 @@
+.box{
+    position: relative;
+    margin: auto;
+    width: 36%;
+    background-color: $veryDarkDesaturatedBlue;
+    top: -3.1rem;
+    border-radius: 5px;
+    .item-row{
+        padding: 3% 4%;
+        border-bottom: 1px solid $veryDarkGrayishBlue;
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+        @include customRadioButton(1.5rem, 1.5rem, $veryDarkDesaturatedBlue, $veryDarkGrayishBlue);
+        .circle{
+            margin-left: 4%;
+            @include centerPositionedElementVertically();
+        }
+        .item{
+            position: absolute;
+            @include centerPositionedElementVertically();
+            margin-left: 9%;
+            width: 80%;
+            @media (max-width: 767px){
+                font-size: $fontSize/1.3;
+            }
+            @media(max-width: 300px){
+                font-size: $fontSize/1.5;
+                margin-left: 13%;
+                width: 70%;
+            }
+        }
+        .cross-icon{
+            display: none;
+            position: absolute;
+            @include centerPositionedElementVertically();
+            right: 4%;
+        }
+        .welcome-message{
+            width: max-content;
+            margin: auto;
+            color: $darkGrayishBlue;
+            @media (max-width: 767px){
+                font-size: $fontSize/1.3;
+            }
+        }
+    }
+    .done-item-row{
+        opacity: 0.8;
+        .circle{
+            background: $checkBackground;
+            img{
+                @include positionImageAbsoluteAndCenter();
+                &:hover, &:focus{
+                    opacity: 0.8;
+                }
+            }
+        }
+        .done-item{   
+            text-decoration: line-through;
+            color: $darkGrayishBlue;
+        }
+    }
+    .info-container{
+        border-bottom: none;
+        cursor: default;
+        font-size: $fontSize/1.25;
+        @include displayFlexAndJustifyContent(space-between);
+        color: $darkGrayishBlue;
+        padding: 2.8% 4%;
+        a{
+            text-decoration: none;
+            color: $darkGrayishBlue;
+            @include makeElementFocusableWithBackground($veryLightGray);
+        }
+        .items-left{
+            p{
+                margin: 0;
+            }
+        }
+        .todo-lists{
+            width: 35%;
+            @include displayFlexAndJustifyContent(space-between);
+            
+            @media (max-width: 767px){
+                display: none;
+            }
+        }
+        @media (max-width: 767px){
+            padding: 2.8% 5%;
+        }
+    }
+    @media (min-width: 992px) and (max-width: 1200px){
+        width: 46%;
+    }
+    @media (min-width: 768px) and (max-width: 991px){
+        width: 60%;
+    }
+    @media (max-width: 767px){
+        width: 80%;
+        top: -3.5rem;
+    }
+    @media (max-width: 576px){
+        width: 90%;
+    }
+}

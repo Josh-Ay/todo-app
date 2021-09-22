@@ -1,0 +1,57 @@
+.light-mode{
+    background-color: $veryLightBluishGray;
+    color: hsl(235, 21%, 11%);
+
+    .top-container{
+        background: url(../../images/bg-desktop-light.jpg) no-repeat;
+        background-size: cover;
+        .input-box{
+            background-color: $veryLightGray;
+            form.create{
+                @include customRadioButton(1.5rem, 1.5rem, $veryLightGray, $lightGrayishBlue);
+                input[name=todoItem]{
+                    background-color: $veryLightGray;
+                    color: $veryDarkDesaturatedBlue;
+                }
+            }
+        }
+        @media (max-width: 767px){
+            background: url(../../images/bg-mobile-light.jpg) no-repeat;
+            background-size: cover;
+        }
+    }
+    .box{
+        background-color: $veryLightGray;
+        .item-row{
+            border-color: $lightGrayishBlue;
+            @include customRadioButton(1.5rem, 1.5rem, $veryLightGray, $lightGrayishBlue);    
+            .circle{
+                border-color: $lightGrayishBlue;
+                @include centerPositionedElementVertically();
+            }
+            @media (max-width: 767px){
+                .circle{
+                    height: 1.4rem;
+                    width: 1.4rem;
+                }
+            }
+        }
+        .done-item-row{
+            .circle{
+                border-color: $veryLightGray;
+                &:hover, &:focus{
+                    background: $checkBackground;
+                }
+            }
+        }
+        .info-container a{
+            @include makeElementFocusableWithBackground($veryDarkBlue);
+        }
+    }
+    .todo-lists-small-screen{
+        background-color: $veryLightGray;
+        a{
+            @include makeElementFocusableWithBackground($veryDarkBlue);
+        }
+    }
+}

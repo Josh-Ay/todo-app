@@ -1,0 +1,95 @@
+.top-container{
+    width: 100%;
+    background: url(../../images/bg-desktop-dark.jpg) no-repeat;
+    background-size: cover;
+    transition: .28s ease-in-out;
+    padding-bottom: 4.5%;
+    .top-box{
+        @include displayFlexAndJustifyContent(space-between);
+        padding-top: 5.4%;
+        width: 36%;
+        margin: auto;
+        @media (min-width: 992px) and (max-width: 1200px){
+            width: 46%;
+        }
+        @media (min-width: 768px) and (max-width: 991px){
+            width: 60%;
+        }
+        @media (max-width: 767px){
+            width: 80%;
+        }
+        @media (max-width: 576px){
+            width: 90%;
+        }
+    }
+    h1{
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.75rem;
+        color: white;
+    }
+    button.toggle-switch{
+        background: none;
+        outline: none;
+        border: none;
+    }
+    .input-box{
+        width: 36%;
+        margin: 2% auto 1%;
+        @include displayFlexAndJustifyContent(space-between);
+        padding: 1.1% 1.6%;
+        background-color: $veryDarkDesaturatedBlue;
+        border-radius: 5px;
+        form.create{
+            width: 100%;
+            position: relative;
+            @include customRadioButton(1.5rem, 1.5rem, $veryDarkDesaturatedBlue, $veryDarkGrayishBlue);
+            input[name=todoItem]{
+                outline: none;
+                border: none;
+                width: 90%;
+                caret-color: $brightBlue;
+                color: $veryLightGray;
+                margin-left: 8%;
+                background-color: $veryDarkDesaturatedBlue;
+                @media (max-width: 576px){
+                    font-size: $fontSize/1.16;
+                }
+                @media (max-width: 300px){
+                    font-size: $fontSize/1.5;
+                    margin-left: 0%;
+                    padding-left: 11%;
+                }
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1200px){
+            width: 46%;
+        }
+        @media (min-width: 768px) and (max-width: 991px){
+            width: 60%;
+            padding: 1.4% 1.6%;
+        }
+        @media (max-width: 767px){
+            width: 80%;
+            padding: 2.2% 4%;
+            margin-top: 9%;
+        }
+        @media (max-width: 576px){
+            width: 90%;
+        }
+    }
+    @media(min-width:992px) and (max-width: 1200px){
+        padding-bottom: 5.5%;
+    }
+    @media(min-width:768px) and (max-width: 991px){
+        padding-bottom: 7.5%;
+    }
+    @media (max-width: 767px){
+        background: url(../../images/bg-mobile-dark.jpg) no-repeat;
+        background-size: cover;
+        padding: 10% 0 20%;
+    }
+    @media (max-width: 300px){
+        padding-bottom: 24%;
+    }   
+}

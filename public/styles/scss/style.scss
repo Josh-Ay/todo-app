@@ -1,0 +1,43 @@
+@import "./variables";
+@import "./custom";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $veryDarkBlue;
+    color: white;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    transition: .28s ease-in-out;
+}
+
+.container-fluid{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+@import "./topContainer";
+
+@import "./todosBox";
+
+.features-container{
+    margin: 3% auto;
+    color: $darkGrayishBlue;
+    font-size: $fontSize/1.4;
+    width: max-content;
+    position: relative;
+    top: -2.125rem;
+    @media (max-width: 767px){
+        top: 1rem;
+    }
+}
+
+@import "./navSmallScreen";
+
+@import "./light";
+
+@import "./currentPageLinkStyle";

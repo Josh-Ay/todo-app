@@ -1,0 +1,92 @@
+<%-include("partials/header");-%>
+<body>
+  <div class="container-fluid">
+    <div class="top-container">
+      <div class="top-box">
+        <h1>Todo</h1>
+        <button class="toggle-switch"><img src="" alt="toggle icon" tabindex="0"></button>  
+      </div>
+      <div class="input-box">
+        <form action="/" method="post" class="create">
+          <label for="addTodo">
+            <input type="radio" name="addTodo" id="addTodo" onchange="this.form.submit()">
+            <div class="circle"><div class="circle-gradient"></div></div>  
+          </label>
+          <input type="text" name="todoItem" placeholder="Create a new todo..." autocomplete="off" aria-label="Add new todo">
+        </form>
+      </div>
+    </div>
+  
+    <div class="box col-md-auto">
+      <% if (itemsLeft === 0) { %>
+        <div class="item-row">
+          <div class="welcome-message">
+            No items yet.
+          </div>
+        </div>
+      <% }; %>
+
+      <% if (locals.doneItems){ %>
+        <% doneItems.forEach((doneItem, index) =>{ %>
+          <div id="<%='completed-' + index %>">
+            <form action="/delete" method="post">
+              <div class="item-row done-item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)">
+                <label for="<%=doneItem._id%>">
+                  <input type="radio" name="completeTodo" id="<%=doneItem._id%>">
+                  <div class="circle"><img src="images/icon-check.svg" alt="check icon" onclick="uncheckTodo(this)"></div>  
+                </label>
+                <div class="item done-item"><%=doneItem.item%></div>
+                <div class="cross-icon" onclick="removeItem(this)" tabindex="0"><img src="images/icon-cross.svg" alt="cross icon"></div>
+                <input type="hidden" name="completedItem" value="<%=doneItem.item%>">
+                <input type="hidden" name="passedId" value="<%=doneItem._id%>">
+                <input type="hidden" name="listName" value="doneList">
+              </div>
+            </form>
+          </div>
+          
+        <% }); %>
+      <% }; %>
+
+      <% if (locals.foundItems){ %>
+        <% foundItems.forEach((toDoItem, index)=>{ %>
+          <div id="<%='todo-' + index%>">
+            <form action="/delete" method="post">
+              <div class="item-row ui-state-default" onmouseenter="showDeleteIcon(this)" onmouseleave="hideDeleteIcon(this)" onclick="submitForm(this)">
+                <label for="<%=toDoItem._id%>">
+                  <input type="radio" name="deleteTodo" id="<%=toDoItem._id%>" onchange="this.form.submit()">
+                  <div class="circle"><div class="circle-gradient"></div></div>  
+                </label>
+                <div class="item"><%=toDoItem.item%></div>
+                <div class="cross-icon" onclick="removeItem(this)" tabindex="0"><img src="images/icon-cross.svg" alt="cross icon"></div>
+                <input type="hidden" name="completedItem" value="<%=toDoItem.item%>">
+                <input type="hidden" name="passedId" value="<%=toDoItem._id%>">
+                <input type="hidden" name="listName" value="todoList">
+              </div>
+            </form>
+          </div>
+          
+          <% }); %>
+      <% }; %>
+
+      <div class="item-row info-container">
+        <div class="items-left">
+          <p><%=itemsLeft%> items left</p>
+        </div>
+        <div class="todo-lists">
+          <a href="/" aria-label="View all todos">All</a>
+          <a href="/active" aria-label="View active todos">Active</a>
+          <a href="/completed" aria-label="View completed todo items">Completed</a>
+        </div>
+        <div class="clear-completed">
+          <a href="/delete/all" aria-label="Clear all your completed todos">Clear Completed</a>
+        </div>
+      </div>
+    </div>  
+
+    <div class="todo-lists-small-screen">
+      <a href="/" aria-label="View all todos">All</a>
+      <a href="/active" aria-label="View active todos">Active</a>
+      <a href="/completed"  aria-label="View completed todo items">Completed</a>
+    </div>
+  </div>
+<%-include("partials/footer.ejs");-%>
