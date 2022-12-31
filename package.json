@@ -4,7 +4,7 @@
   "description": "Todo app",
   "main": "app.js",
   "scripts": {
-    
+    "start": "node app.js" 
   },
   "keywords": [],
   "author": "Ayoola Ooloyede",
